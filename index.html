@@ -216,9 +216,74 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Classes Gallery Section */
+        .classes {
+            padding: clamp(3rem, 10vw, 5rem) 2rem;
+            background: var(--bg-gradient);
+            color: #fff;
+            position: relative;
+        }
+
+        .classes h2 {
+            text-align: center;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 3rem;
+        }
+
+        .classes-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 25vw, 250px), 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            aspect-ratio: 1 / 1; /* Ensures square shape */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
         /* Footer */
         footer {
-            background: var(--primary- color);
+            background: var(--primary-color);
             color: #fff;
             padding: clamp(2rem, 8vw, 3rem) 2rem;
             text-align: center;
@@ -300,8 +365,8 @@
                 font-size: clamp(0.9rem, 2.5vw, 1.2rem);
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .features-grid, .classes-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
         }
 
@@ -317,6 +382,10 @@
 
             .feature-card {
                 padding: 1.5rem;
+            }
+
+            .classes-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
             .social-links a {
@@ -342,12 +411,13 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo">Stock Archery Bihar's</div>
+            <div class="logo">Stock Archery Bihars</div>
             <button class="hamburger" aria-label="Toggle menu">☰</button>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#classes">Classes</a></li>
                     <li><a href="#join">Join Now</a></li>
                     <li><a href="https://t.me/stockarchery" class="cta-button">Join Telegram</a></li>
                 </ul>
@@ -357,7 +427,7 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Join the Stock Archery Bihar's Community</h1>
+            <h1>Join the Stock Archery Bihars Community</h1>
             <p>Connect with a vibrant community of traders to share ideas, learn expert analysis, and grow together on our exclusive Telegram group!</p>
             <a href="https://t.me/stockarchery" class="cta-button">Join Our Telegram Now</a>
             <a href="https://t.me/stockarchery" class="cta-button">Join Today!</a>
@@ -381,6 +451,44 @@
                 <h3>Community Support</h3>
                 <p>Connect with like-minded traders, share ideas, and grow together.</p>
                 <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="classes" id="classes">
+        <h2>Our Trading Classes</h2>
+        <div class="classes-gallery">
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dyrn2eg1j/image/upload/v1724496435/10_m2smbz.jpg" alt="Trading Class 1">
+                <div class="overlay">
+                    <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dyrn2eg1j/image/upload/v1724496435/Bihar_ex6eu7.jpg" alt="Trading Class 2">
+                <div class="overlay">
+                    <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dyrn2eg1j/image/upload/v1746951516/IMG_8041_3_g8oyht.jpg" alt="Trading Class 3">
+                <div class="overlay">
+                    <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dyrn2eg1j/image/upload/v1746951516/IMG_7408_ddqkyw.jpg" alt="Trading Class 4">
+                <div class="overlay">
+                    <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/dyrn2eg1j/image/upload/v1746951519/IMG_7413_unalk4.jpg" alt="Trading Class 5">
+                <div class="overlay">
+                    <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+                </div>
+            </div>
+            
             </div>
         </div>
     </section>
