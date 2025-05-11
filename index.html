@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Archery Bihars - Join Our Telegram Community</title>
+    <style>
+        :root {
+            --primary-color: #1a3c34;
+            --secondary-color: #e8b923;
+            --accent-color: #b22222;
+            --text-color: #333;
+            --bg-gradient: linear-gradient(135deg, #1a3c34, #2e5c52);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Parallax Background */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518602164573-6d7c53a4b664') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+            transform: translateZ(0);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 60, 52, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 3vw, 2rem);
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: clamp(1rem, 5vw, 2rem);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: #fff;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: clamp(3rem, 10vw, 5rem) 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 30vw, 300px), 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary- color);
+            color: #fff;
+            padding: clamp(2rem, 8vw, 3rem) 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 1rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 1rem;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 60, 52, 0.95);
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                visibility: hidden;
+            }
+
+            nav.active {
+                transform: translateY(0);
+                visibility: visible;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            nav ul li a {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .hero p {
+                font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: clamp(1.2rem, 4vw, 1.5rem);
+            }
+
+            .cta-button {
+                padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .social-links a {
+                margin: 0 0.5rem;
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+        }
+
+        /* Particles Animation */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax-bg"></div>
+    <div id="particles-js"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Stock Archery Bihar's</div>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#join">Join Now</a></li>
+                    <li><a href="https://t.me/stockarchery" class="cta-button">Join Telegram</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Join the Stock Archery Bihar's Community</h1>
+            <p>Connect with a vibrant community of traders to share ideas, learn expert analysis, and grow together on our exclusive Telegram group!</p>
+            <a href="https://t.me/stockarchery" class="cta-button">Join Our Telegram Now</a>
+            <a href="https://t.me/stockarchery" class="cta-button">Join Today!</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Why Join Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Real-Time Market Updates</h3>
+                <p>Stay ahead with instant stock market updates and discussions directly on Telegram.</p>
+                <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+            </div>
+            <div class="feature-card">
+                <h3>Expert Analysis</h3>
+                <p>Learn from seasoned traders with in-depth analysis and proven strategies.</p>
+                <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+            </div>
+            <div class="feature-card">
+                <h3>Community Support</h3>
+                <p>Connect with like-minded traders, share ideas, and grow together.</p>
+                <a href="https://t.me/stockarchery" class="cta-button">Join Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="join">
+        <p>Join Stock Archery Bihars Today and Elevate Your Trading Game!</p>
+        <a href="https://t.me/stockarchery" class="cta-button">Join Telegram</a>
+        <a href="https://t.me/stockarchery" class="cta-button">Start Trading Now!</a>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Stock Archery Bihars. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#e8b923' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#e8b923', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: true }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('active');
+                    hamburger.textContent = '☰';
+                }
+            });
+        });
+
+        // Adjust particles density based on screen size
+        window.addEventListener('resize', () => {
+            const particleCount = window.innerWidth <= 480 ? 40 : 80;
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: particleCount, density: { enable: true, value_area: 800 } },
+                    color: { value: '#e8b923' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: '#e8b923', opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 2, direction: 'none', random: true }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                    modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+                },
+                retina_detect: true
+            });
+        });
+    </script>
+</body>
+</html>
